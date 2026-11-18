@@ -9,9 +9,9 @@ short initials.
 
 ## Team
 
-TEAM-NAME: [Choose a 2–32 character team name.]
-MEMBER-LABELS: [List each member's first name or initials, separated by commas.]
-TEAM-WORK: [Explain how the team will rotate commands, review decisions, and report problems that stop progress.]
+TEAM-NAME: MRI-Team
+MEMBER-LABELS: Waipo, imanuel, Gao
+TEAM-WORK: Waipo runs the commands, imanuel checks each recorded decision, and Gao records problems that stop progress in the team log. The members rotate these jobs after the first check, and any problem that stops progress is reported to the whole team.
 
 ## Fixed Course Facts
 
@@ -27,16 +27,16 @@ These are supplied facts, not questions. Do not rewrite them.
 
 ## Project Boundary
 
-SYSTEM-DOES: [In one sentence, describe the MRI input, object-detection action, and returned result.]
-SYSTEM-DOES-NOT: [In one sentence, state one medical or automatic-decision claim the workflow must not make.]
-REVIEWER: [State that a designated human reviewer receives and reviews every model output.]
+SYSTEM-DOES: The workflow receives one RGB brain-MRI image, performs object detection to locate regions annotated as glioma, meningioma, or pituitary, and returns zero or more labeled boxes for human review.
+SYSTEM-DOES-NOT: It does not diagnose any condition and does not authorize or trigger any automatic medical action.
+REVIEWER: A designated human reviewer receives and reviews every model output.
 
 ## Risk And Testable Behaviour
 
-RISK: [Describe one specific thing that could go wrong.]
-RESPONSE: [State what the team or workflow will do when that risk occurs.]
-TESTABLE-BEHAVIOUR: [Write one Given–When–Then example with an observable result.]
+RISK: An image with no tumor annotation could be returned with a false box that looks like a tumor region.
+RESPONSE: The workflow sends every result, including uncertain ones, to the human reviewer and never triggers an automatic medical decision.
+TESTABLE-BEHAVIOUR: Given a notumor image, when the workflow processes it, then it returns zero boxes and sends the result to the human reviewer.
 
 ## Initial Contributions
 
-INITIAL-CONTRIBUTIONS: [List every member label and one first contribution for this lab.]
+INITIAL-CONTRIBUTIONS: Waipo ran the start command; imanuel checked the project boundary; Gao drafted the risk and response.
